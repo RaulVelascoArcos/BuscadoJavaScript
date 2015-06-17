@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Buscacor</title>
+</head>
+<body>
+	<h1>Busqueda de Artistas</h1>
+	<input type="text" placeholder="Artista Faborito" id="artista">
+	<button id="buscar">Buscar</button>
+	<div id="resultado"></div>
+	<!-- Librerias -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
+	</script>
+	<script>
+		var $artista = $('#artista'),
+			$buscar  = $('#buscar'),
+			$resultado = $('#resultado');
+		function buscarArtista(){
+			var artista = $artista.val(),
+				api_key = '6d4950d043ca19b9cadcd13bac45d1ac';
+			$.ajax({
+				data:{
+					artist : artista,
+					api_key : api_key,
+					format : 'json',
+					method : 'artist.getinfo'
+				},
+				url : 'http://ws.audioscrobbler.com/2.0/'
+			})
+			.done(presentarArtista)
+		}
+		function presentarArtista( data){
+			var artista = data.artist,
+				html = '';
+			html += '<h2>' + artista.name + '</h2>';
+			html += '<figure><img src="'+ artista.image[artista.image.length -1 ] ['#text']+'"><figcaption>'+artista.image[artista.image.length -1 ].size+'</figcaption></figure>';
+			html += '<p>'+artista.bio.summary;+'</p>';
+			$resultado.html(html);
+		}
+		$buscar.on('click',buscarArtista);
+	</script>
+	
+</body>
+</html>
