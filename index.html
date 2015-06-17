@@ -3,12 +3,16 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Buscacor</title>
+	<link rel="stylesheet" href="estilos.css">
+	<link rel="stylesheet" href="normalize.css"
 </head>
 <body>
-	<h1>Busqueda de Artistas</h1>
-	<input type="text" placeholder="Artista Faborito" id="artista">
-	<button id="buscar">Buscar</button>
-	<div id="resultado"></div>
+	<header>
+		<h1>Busqueda de Artistas</h1>
+		<input type="text" placeholder="Artista Faborito" id="artista">
+		<button id="buscar" >Buscar</button>
+		<div id="resultado"></div>
+	</header>
 	<!-- Librerias -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
 	</script>
@@ -34,7 +38,7 @@
 			var artista = data.artist,
 				html = '';
 			html += '<h2>' + artista.name + '</h2>';
-			html += '<figure><img src="'+ artista.image[artista.image.length -1 ] ['#text']+'"><figcaption>'+artista.image[artista.image.length -1 ].size+'</figcaption></figure>';
+			html += '<figure><img src="'+ artista.image[artista.image.length -1 ] ['#text']+'"></figure>';
 			html += '<p>'+artista.bio.summary;+'</p>';
 			$resultado.html(html);
 		}
