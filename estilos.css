@@ -1,18 +1,21 @@
-
+body{
+	padding: 3em;
+	width: 85%;
+	margin: auto;
+	max-width: 50em;
+	font-size: 16px;
+}
 button{
 	background: rgba(237, 91, 65, 0.78);
 	border: none;
 	border-radius: .8em;
 	color: white;
 	padding: .5em .8em;
-
 }
 header{
 	text-align: center;
 }
 button:hover{
+	text-decoration: none;
 	background: rgba(237, 91, 65, 1);
-}
-p{
-	margin:0 10em;
 }
